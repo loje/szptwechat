@@ -1,9 +1,18 @@
 $(document).ready(function(){
 
 	//wechat page
-	$(".wechat-container").height($(window).height());
+	//$(".wechat-container").height($(window).height());
 	$(window).resize(function(){
-		$(".wechat-container").height($(window).height());
+		//$(".wechat-container").height($(window).height());
+		if($(".wechat-chat").height() > $(".wechat-container").height()){
+			$(".wechat-chat").attr("style","bottom: 60px;");
+		}
+	})
+
+	$("#kqzygh_wechat").click(function(){
+		$(".wechat-container").append("<a href='jiuyezhengce_page.html' class='wechat-msg' id='zycpmsg'><div class='msg-time'><span>下午4:05</span></div><div class='msg-box'><h5>深职毕业生去哪</h5><h5><small>10月12日</small></h5><div class='thumbnail'><div class='img'><div class='img-title'>深职毕业生去哪</div></div><div class='caption'><p>带你了解深职人的光明未来</p></div></div><p><small>查看全文</small></p></div></a>");
+		$("#zycpmsg").removeAttr("style");
+		$(".chat-c").width($(".chat-box .media").width() - 100);
 		if($(".wechat-chat").height() > $(".wechat-container").height()){
 			$(".wechat-chat").attr("style","bottom: 60px;");
 		}
@@ -28,15 +37,30 @@ $(document).ready(function(){
 	});
 
 	$(".jyss").click(function(){
-		$(".wechat-msg").removeAttr("style");
+		$(".wechat-container").append("<a href='jiuyezhengce_page.html' class='wechat-msg' id='zycpmsg'><div class='msg-time'><span>下午4:05</span></div><div class='msg-box'><h5>春季双选会开始啦</h5><h5><small>10月12日</small></h5><div class='thumbnail'><div class='img'><div class='img-title'>春季双选会开始啦</div></div><div class='caption'><p>全面剖析2016年春季招聘</p></div></div><p><small>查看全文</small></p></div></a>");
+		$("#dddzyzx_msg").removeAttr("style");
+		$("#dddzyzx_msg .chat-c").width($("#dddzyzx_msg .chat-box .media").width() - 100);
+		if($(".wechat-chat").height() > $(".wechat-container").height()){
+			$(".wechat-chat").attr("style","bottom: 60px;");
+		}
+	})
+
+	$(".send .btn").click(function(){
+
+		$(".wechat-container").append('<div class="wechat-msg" id="wechat_msg"><div class="msg-time"><span>下午4:06</span></div><div class="chat-box"><div class="media"><div class="media-left"><div class="media-object"></div></div><div class="media-body"><span class="sanjiaoxing"></span><span class="chat-c">发送"zp+关键字"搜索近期招聘信息</span></div></div></div></div>');
+		$(".input-box input").val("");
+		$("#wechat_msg").removeAttr("style");
 		$(".chat-c").width($(".chat-box .media").width() - 100);
 		if($(".wechat-chat").height() > $(".wechat-container").height()){
 			$(".wechat-chat").attr("style","bottom: 60px;");
 		}
 	})
-	$(".send button").click(function(){
+
+	$(".ddd").click(function(){
+
+		$(".wechat-container").append('<div class="wechat-msg" id="wechat_msg"><div class="msg-time"><span>下午4:06</span></div><div class="chat-box"><div class="media"><div class="media-left"><div class="media-object"></div></div><div class="media-body"><span class="sanjiaoxing"></span><span class="chat-c">你好，请问有什么可以帮到你？</span></div></div></div></div>');
 		$(".input-box input").val("");
-		$(".wechat-msg").removeAttr("style");
+		$("#wechat_msg").removeAttr("style");
 		$(".chat-c").width($(".chat-box .media").width() - 100);
 		if($(".wechat-chat").height() > $(".wechat-container").height()){
 			$(".wechat-chat").attr("style","bottom: 60px;");
@@ -121,4 +145,60 @@ $(document).ready(function(){
 
 
 	$(".college-list .the-college .thumbnail .img").height($(".college-list .the-college .thumbnail .img").width());
+
+	$(".list-container").height($(window).height());
+	$(window).resize(function(){
+		$(".list-container").height($(window).height());
+	});
+
+	$(".portrait a.thumbnail .img").height($(".portrait a.thumbnail .img").width());
+
+	$("#the_experience").click(function() {
+		$("#experienceTab").removeAttr("style");
+		$("#experienceAdd").attr("style","display:none;");
+	})
+	$("#experienceBtn").click(function(){
+		$("#experienceTab").attr("style","display:none;");
+		$("#experienceAdd").removeAttr("style");
+		$("#educationAdd").attr("style","display:none;");
+	})
+	$("#experienceCancel").click(function(){
+		$("#experienceAdd").attr("style","display:none;");
+	})
+
+	$("#the_education").click(function() {
+		$("#educationTab").removeAttr("style");
+		$("#educationAdd").attr("style","display:none;");
+	})
+	$("#educationBtn").click(function(){
+		$("#educationTab").attr("style","display:none;");
+		$("#educationAdd").removeAttr("style");
+		$("#experienceAdd").attr("style","display:none;");
+	})
+
+	$("#educationCancel").click(function(){
+		$("#educationAdd").attr("style","display:none;");
+	})
+
+	$(".portal-head .thumbnail").height($(".portal-head .thumbnail").width());
+	$("a[href='#myinfo']").click(function(){
+		setTimeout(function(){
+			$(".portal-head .thumbnail").height($(".portal-head .thumbnail").width());
+		},250);
+	})
+	// setTimeout(function(){
+	// 	$(".portal-head a").height($(".portal-head a").width());
+	// },2000);
+	
+	// $(window).resize(function(){
+	// 	setTimeout(function(){
+	// 		$(".portal-head a").height($(".portal-head a").width());
+	// 	},2000);
+	// })
+	$(".resume-pc .page-header h4 i.iconfont").mouseover(function(){
+		$(".resume-pc .page-header h4 img").removeAttr("style");
+	});
+	$(".resume-pc .page-header h4 i.iconfont").mouseleave(function(){
+		$(".resume-pc .page-header h4 img").attr("style","display:none;");
+	});
 })
